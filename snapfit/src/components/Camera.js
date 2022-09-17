@@ -4,6 +4,8 @@ import db from "../firebase";
 
 export function Camera(){
     const [source, setSource] = useState("");
+    const [url, setUrl] = useState("");
+    const [clothingType, setClothingType] = useState("shirt");
 
     function toDataURL(src, callback, outputFormat) {
         let image = new Image();
@@ -26,6 +28,7 @@ export function Camera(){
     }
     
     function handleImageUpload(event){
+        setUrl(event.target.value);
         let file = event.target.files[0];
         const newUrl = URL.createObjectURL(file);
         toDataURL(newUrl,
@@ -35,15 +38,28 @@ export function Camera(){
       )
     }
 
+    function handleClothingTypeChange(e){
+      setClothingType(e.target.value);
+    }
+
     async function postImageData(){
-        db.collection("shirts").add(
+        db.collection(clothingType).add(
           {photo: source}
         )
+        setUrl("");
+        setSource("");
     }
     return (
         <div id="cameraDiv">
-            <input accept="image/*"type="file" capture="environment" onChange={handleImageUpload}/>
+            <input accept="image/*"type="file" capture="environment" onChange={handleImageUpload} value={url}/>
             {source && <img src={source} style={{width: "100%", height: "auto"}}/>}
+            {source && 
+            <select onChange={handleClothingTypeChange}name="clothingType" id="clothingType">
+              <option value="shirts">Shirts</option>
+              <option value="pants">Pants</option>
+              <option value="shoes">Shoes</option>
+            </select>
+            }
             {source && <button onClick={postImageData}>upload photo</button>}
         </div>
     );
