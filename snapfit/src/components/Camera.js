@@ -5,7 +5,7 @@ import db from "../firebase";
 export function Camera(){
     const [source, setSource] = useState("");
     const [url, setUrl] = useState("");
-    const [clothingType, setClothingType] = useState("shirt");
+    const [clothingType, setClothingType] = useState("shirts");
 
     function toDataURL(src, callback, outputFormat) {
         let image = new Image();
