@@ -1,7 +1,15 @@
+import './Wardrobe.css';
+
 function Wardrobe() {
+
+
   return (
-    <p>hello</p>
+    <div class="scrollmenu">
+      
+    </div>
   );
 }
+
+function formatFilesInDirectory() {}
 
 export default Wardrobe;
