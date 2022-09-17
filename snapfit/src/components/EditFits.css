@@ -1,0 +1,26 @@
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollmenu img {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    width: 50%;
+    height: 200px;
+    object-fit: contain;
+  }
+  
+  div.scrollmenu div {
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    width: 15%;
+  }
+  
+  div.maincontainer {
+    height: 90vh;
+  }

@@ -3,3 +3,12 @@ img {
   height: auto;
   margin: 4%;
 }
+
+#selectorContainer{
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+}
