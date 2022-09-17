@@ -9,11 +9,18 @@ div.scrollmenu img {
   text-align: center;
   padding: 14px;
   text-decoration: none;
+  width: 50%;
+  height: 200px;
+  object-fit: contain;
 }
 
-div.thisshouldbeaphoto {
-  height: 100px;
-  width: 100px;
-  background-color: blueviolet ;
-  margin: 10px;
+div.scrollmenu div {
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  width: 15%;
+}
+
+div.maincontainer {
+  height: 90vh;
 }
