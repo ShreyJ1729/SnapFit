@@ -39,7 +39,7 @@ export function Wardrobe() {
           value={clothingType}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons="auto"
+          scrollButtons="false"
           aria-label="scrollable auto tabs example"
         >
           <Tab label="Shirts" value="shirts"/>
