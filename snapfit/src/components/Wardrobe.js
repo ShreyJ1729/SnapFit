@@ -10,6 +10,14 @@ function Wardrobe() {
   );
 }
 
-function formatFilesInDirectory() {}
+const fs = require('fs');
+function formatFilesInDirectory(dir) {
+  var ret
+
+  fs.readdirSync(dir).forEach(file => {
+    ret += <img src={file}></img>
+  });
+  return ret
+}
 
 export default Wardrobe;
