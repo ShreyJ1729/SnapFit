@@ -48,7 +48,7 @@ export function Fits(){
                 <button style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit + 1 >= fits.length ? currentFit : currentFit+1)}}>next fit</button>
             </div>
             }
-            {(addingFit || editingFit ) && <EditFits setFitStatus={setAddingFit} setFitStatus2={setEditingFit} currentShirt={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shirtId : null} currentPants={editingFit && fits != null && fits.length > 0 ? fits[currentFit].pantsId : null} currentShoes={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shoesId : null} fitId={ fits != null && fits.length > 0 ? fits[currentFit].fitId: null}/>}
+            {(addingFit || editingFit ) && <EditFits setFitStatus={setAddingFit} setFitStatus2={setEditingFit} currentShirt={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shirtId : null} currentPants={editingFit && fits != null && fits.length > 0 ? fits[currentFit].pantsId : null} currentShoes={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shoesId : null} fitId={ editingFit && fits != null && fits.length > 0 ? fits[currentFit].fitId: null}/>}
             {!(addingFit || editingFit ) && <button onClick={() => setAddingFit(true)}>Add Fits</button>}
         </div>
         
