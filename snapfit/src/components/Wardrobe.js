@@ -10,27 +10,36 @@ import Box from '@mui/material/Box';
 export function Wardrobe() {
   const [clothingType, setClothingType] = useState("shirts");
   const [images, setImages] = useState();
+  const [selectedImageIndex, setSelectedImageIndex] = useState();
 
   useEffect(() => {
     let testImages = [];
-    console.log(clothingType);
     db.collection(clothingType).onSnapshot((snapshot) => {
       for(let i = 0; i < snapshot.docs.length; i++){
         if(snapshot.docs[i].data().photo){
-          let a = snapshot.docs[i].data().photo;
-          testImages.push(a);
+          testImages.push({
+            id: snapshot.docs[i].id,
+            photo: snapshot.docs[i].data().photo
+          });
         }
       }
       setImages(testImages);
     });
-  }, [clothingType]);
+  }, [clothingType, selectedImageIndex]);
 
   const handleChange = (event, value) => {
-    console.log(value);
     setClothingType(value);
   };
 
+  function renderImageDetails(imageId){
+    setSelectedImageIndex(imageId);
+  }
 
+  async function deleteImage(){
+    setSelectedImageIndex(null);
+    //remove from the database
+    await db.collection(clothingType).doc(images[selectedImageIndex].id).delete();
+  }
   return (
     <div>
       <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
@@ -49,7 +58,24 @@ export function Wardrobe() {
       </Box>
       <br/>
       <br/>
-      {images && images.map((image,index) => <img src={image} alt={clothingType} key={index}/>)}
+      {selectedImageIndex != null && (
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+          <img src={images[selectedImageIndex].photo}/>
+          <button onClick={deleteImage}>Delete Image</button>
+          <br/>
+          <button onClick={() => {setSelectedImageIndex(null);}}>Return</button>
+        </div>
+      )}
+      {selectedImageIndex == null && 
+        <div>
+          {images && images.map((image,index) => {return (
+            <div className="imgContainer" style={{position: "relative"}}>
+              <img src={image.photo} alt={clothingType} key={index} onClick={() => renderImageDetails(index)}/>
+            </div>
+          );
+          })}
+        </div>
+      }
     </div>
   );
 }
