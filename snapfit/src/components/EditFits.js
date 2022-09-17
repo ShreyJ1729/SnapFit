@@ -43,17 +43,17 @@ export function EditFits() {
     <div className="maincontainer">
       <div className="scrollmenu">
         <div/>
-        {shirtimages && shirtimages.map(image => <img src={image} alt={"shirt"}/>)}
+        {shirtimages && shirtimages.map((image, index) => <img src={image} alt={"shirt"} key={index}/>)}
         <div/>
       </div>
       <div className="scrollmenu">
         <div/>
-        {pantimages && pantimages.map(image => <img src={image} alt={"pant"}/>)}
+        {pantimages && pantimages.map((image, index) => <img src={image} alt={"pant"} key={index}/>)}
         <div/>
       </div>
       <div className="scrollmenu">
         <div/>
-        {shoeimages && shoeimages.map(image => <img src={image} alt={"shoe"}/>)}
+        {shoeimages && shoeimages.map((image, index) => <img src={image} alt={"shoe"} key={index}/>)}
         <div/>
       </div>
       <div style={{height:"50px"}}/>
