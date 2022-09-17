@@ -1,5 +1,8 @@
 #cameraDiv {
     width: 100%;
     height: 650px;
-    background-color: aqua;
+}
+
+#container-circles {
+    margin-bottom: 15vw;
 }
