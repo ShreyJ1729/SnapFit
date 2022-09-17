@@ -1,5 +1,5 @@
 export function Fits(){
     return (
-        <p>Oh yeah, my fits baby</p>
+        <p style={{margin: 0}}>Oh yeah, my fits baby</p>
     );
 }

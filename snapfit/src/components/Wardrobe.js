@@ -2,7 +2,7 @@ import './Wardrobe.css';
 
 export function Wardrobe() {
   return (
-    <div class="scrollmenu">
+    <div className="scrollmenu">
       <p>Test Wardrobe</p>
     </div>
   );
