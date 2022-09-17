@@ -7,8 +7,12 @@ export function MenuBar(){
             <Link to="/wardrobe">
                 <button>My Wardrobe</button>
             </Link>
-            <button>Camera</button>
-            <button>My Fits</button>
+            <Link to="/camera">
+                <button>Camera</button>
+            </Link>
+            <Link to="/fits">
+                <button>My Fits</button>
+            </Link>
         </div>
     )
 }

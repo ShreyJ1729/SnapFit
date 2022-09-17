@@ -3,18 +3,40 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {Wardrobe}  from './components/Wardrobe';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
+import { Wardrobe } from './components/Wardrobe';
+import { Camera } from './components/Camera';
+import { Fits } from './components/Fits';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+    children: [
+      {
+        path: "wardrobe",
+        element: <Wardrobe/>
+      },
+      {
+        path: "camera",
+        element: <Camera/>,
+      },
+      {
+        path: "fits",
+        element: <Fits/>,
+      }
+    ]
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App/>}/>
-        <Route path="wardrobe" element={<Wardrobe/>} />
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
