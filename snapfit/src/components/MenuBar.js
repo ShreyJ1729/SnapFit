@@ -1,20 +1,7 @@
 import "./MenuBar.css";
-import { Outlet, Link } from "react-router-dom";
-import db from "../firebase";
-import { useEffect } from "react";
+import { Outlet, Link, json } from "react-router-dom";
 
 export function MenuBar() {
-  useEffect(() => {
-    db.collection("test").onSnapshot((snapshot) => {
-        snapshot.docs.map((doc) => {
-          console.log(doc.data());
-        });
-      });
-      db.collection("test").add(
-        {hi: "everyone"}
-      );
-  }, []);
-
   return (
     <div id="container">
       <Link to="/wardrobe">
