@@ -1,15 +1,9 @@
 import './Wardrobe.css';
 
-function Wardrobe() {
-
-
+export function Wardrobe() {
   return (
-    <div class="scrollmenu">
-      
+    <div>
+      <p>Test Wardrobe</p>
     </div>
   );
 }
-
-function formatFilesInDirectory() {}
-
-export default Wardrobe;
