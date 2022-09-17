@@ -1,0 +1,14 @@
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    height: 10%;
+}
+
+button {
+    margin: 10px;
+}
