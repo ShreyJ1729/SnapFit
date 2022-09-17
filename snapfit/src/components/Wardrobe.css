@@ -1,13 +1,19 @@
 div.scrollmenu {
-  background-color: #333;
   overflow: auto;
   white-space: nowrap;
 }
 
-div.scrollmenu a {
+div.scrollmenu div {
   display: inline-block;
   color: white;
   text-align: center;
   padding: 14px;
   text-decoration: none;
+}
+
+div.thisshouldbeaphoto {
+  height: 100px;
+  width: 100px;
+  background-color: blueviolet ;
+  margin: 10px;
 }

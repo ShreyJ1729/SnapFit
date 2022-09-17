@@ -1,6 +1,6 @@
 import "./Camera.css";
-import React, { useState } from 'react';    
-
+import React, { useState, useEffect } from 'react';
+import db from "../firebase";
 
 export function Camera(){
     const [source, setSource] = useState("");
@@ -36,8 +36,9 @@ export function Camera(){
     }
 
     async function postImageData(){
-      //post image data here
-      console.log(source);
+        db.collection("shirts").add(
+          {photo: source}
+        )
     }
     return (
         <div id="cameraDiv">
