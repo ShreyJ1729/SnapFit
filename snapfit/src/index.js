@@ -8,7 +8,7 @@ import {
   Route,
 } from "react-router-dom";
 import { Wardrobe } from './components/Wardrobe';
-import { Camera } from './components/Camera';
+import { CameraComponent } from './components/Camera';
 import { Fits } from './components/Fits';
 
 const router = createBrowserRouter([
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "camera",
-        element: <Camera/>,
+        element: <CameraComponent/>,
       },
       {
         path: "fits",
