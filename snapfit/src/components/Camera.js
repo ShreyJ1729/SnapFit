@@ -34,6 +34,7 @@ export function CameraComponent() {
         }
       }
       idealFacingMode = {FACING_MODES.ENVIRONMENT}
+      isFullscreen = {true}
       style={{visibility: source ? "hidden" : "visible"}}
       />
       }
