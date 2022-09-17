@@ -1,19 +1,31 @@
 import './Wardrobe.css';
 import * as React from 'react';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+
 
 export function Wardrobe() {
-  const handleClick = () => {
-    console.info('You clicked the Chip.');
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
-    <Stack direction="row" spacing={1}>
-      <Chip label="Shirts" variant="outlined" onClick={handleClick} />
-      <Chip label="Pants/Shorts" variant="outlined" onClick={handleClick} />
-      <Chip label="Shoes" variant="outlined" onClick={handleClick} />
-    </Stack>
+    <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons="auto"
+        aria-label="scrollable auto tabs example"
+      >
+        <Tab label="Shirts" />
+        <Tab label="Pants/Shorts" />
+        <Tab label="Shoes" />
+      </Tabs>
+    </Box>
   );
 }
 
