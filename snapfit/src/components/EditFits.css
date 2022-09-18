@@ -24,3 +24,7 @@ div.scrollmenu {
   div.maincontainer {
     height: 90vh;
   }
+
+  .css-100h55t-MuiStack-root{
+      justify-content: center;
+  }

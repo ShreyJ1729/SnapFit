@@ -67,13 +67,8 @@ export function Fits(){
         <div>
             {(!(addingFit || editingFit) && ((fits != null) && fits.length > 0)) && 
             <div style={{display: "flex", alignItems: "center"}}>
-<<<<<<< HEAD
-                <button style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit - 1 < 0 ? currentFit : currentFit-1)}}>last fit</button>
-                <div style={{display: "flex", justifyContent: "center"}} onClick={() => {setEditingFit(true); setAddingFit(true);}}>   
-=======
                 <Fab color="primary" style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit - 1 < 0 ? currentFit : currentFit-1)}}><ArrowBackIosIcon /></Fab>
                 <div style={{display: "flex", justifyContent: "center"}} onClick={() => {console.log("i was clicked"); setEditingFit(true); setAddingFit(true);}}>   
->>>>>>> 44d7e31a9ce0a8c30276649ffea7c8e99570194f
                     <div style={{width: "100%"}}>
                         <div><img src={fits[currentFit].shirt}/></div>
                         <div><img src={fits[currentFit].pants}/></div>
