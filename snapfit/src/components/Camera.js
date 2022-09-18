@@ -20,6 +20,7 @@ export function CameraComponent() {
 
   useEffect(() => {
     const loadModel = async () => {
+      alert("WAIT! loading model... will notify when done")
       let model_ = await tf.loadLayersModel("tfjs_model/model.json"); 
       setModel(model_);
     };
