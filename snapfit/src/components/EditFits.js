@@ -54,6 +54,14 @@ export function EditFits(props) {
       });
   }, []);
 
+  async function deleteFit(){
+    if(props.fitId != null){
+      await db.collection('fits').doc(props.fitId).delete();
+    }
+    props.setFitStatus(false);
+    props.setFitStatus2(false);
+  }
+
   async function confirmNewFit(){
     //delete old fit from database
     if(props.fitId != null){
@@ -90,10 +98,8 @@ export function EditFits(props) {
       <Stack textAlign="center" spacing={2} direction="row">
         <Button onClick={goBack} variant="contained">Go Back</Button>
         <Button onClick={confirmNewFit} variant="contained">Confirm Fit</Button>
+        <Button onClick={deleteFit} variant="contained">Delete Fit</Button>
       </Stack>
-      {/* <button onClick={goBack}>Go Back</button>
-      <br/>
-      <button onClick={confirmNewFit}>Confirm Fit</button> */}
       <div style={{height:"50px"}}/>
     </div>
   );
