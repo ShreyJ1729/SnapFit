@@ -2,6 +2,9 @@ import './EditFits.css';
 import { useState, useEffect } from 'react';
 import db from "../firebase";
 import { border } from '@mui/system';
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export function EditFits(props) {
   let [shirtimages, setShirtImage] = useState();
@@ -84,9 +87,13 @@ export function EditFits(props) {
         {shoeimages && shoeimages.map((image, index) => <img src={image.photo} alt={"shoe"} key={index} onClick={() => setSelectedShoes(image.id)} style={image.id == selectedShoes ? {borderColor: "black", borderSize: "2px", borderStyle: "solid"}: {}}/>)}
         <div/>
       </div>
-      <button onClick={goBack}>Go Back</button>
+      <Stack textAlign="center" spacing={2} direction="row">
+        <Button onClick={goBack} variant="contained">Go Back</Button>
+        <Button onClick={confirmNewFit} variant="contained">Confirm Fit</Button>
+      </Stack>
+      {/* <button onClick={goBack}>Go Back</button>
       <br/>
-      <button onClick={confirmNewFit}>Confirm Fit</button>
+      <button onClick={confirmNewFit}>Confirm Fit</button> */}
       <div style={{height:"50px"}}/>
     </div>
   );
