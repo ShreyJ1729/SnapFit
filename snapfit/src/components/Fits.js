@@ -67,7 +67,7 @@ export function Fits(){
         <div>
             {(!(addingFit || editingFit) && ((fits != null) && fits.length > 0)) && 
             <div style={{display: "flex", alignItems: "center"}}>
-                <Fab color="primary" style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit - 1 < 0 ? currentFit : currentFit-1)}}><ArrowBackIosIcon /></Fab>
+                <Fab color="primary" style={{width: "100px", height: "50px", marginLeft: "10px"}} onClick={()=>{setCurrentFit(currentFit - 1 < 0 ? currentFit : currentFit-1)}}><ArrowBackIosIcon /></Fab>
                 <div style={{display: "flex", justifyContent: "center"}} onClick={() => {console.log("i was clicked"); setEditingFit(true); setAddingFit(true);}}>   
                     <div style={{width: "100%"}}>
                         <div><img src={fits[currentFit].shirt}/></div>
@@ -75,7 +75,7 @@ export function Fits(){
                         <div><img src={fits[currentFit].shoes}/></div>
                     </div>
                 </div>  
-                <Fab color = "primary" style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit + 1 >= fits.length ? currentFit : currentFit+1)}}><ArrowForwardIosIcon /></Fab>
+                <Fab color = "primary" style={{width: "100px", height: "50px", marginRight: "10px"}} onClick={()=>{setCurrentFit(currentFit + 1 >= fits.length ? currentFit : currentFit+1)}}><ArrowForwardIosIcon /></Fab>
             </div>
             }
             {(addingFit || editingFit ) && <EditFits setFitStatus={setAddingFit} setFitStatus2={setEditingFit} currentShirt={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shirtId : null} currentPants={editingFit && fits != null && fits.length > 0 ? fits[currentFit].pantsId : null} currentShoes={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shoesId : null} fitId={ editingFit && fits != null && fits.length > 0 ? fits[currentFit].fitId: null}/>}
