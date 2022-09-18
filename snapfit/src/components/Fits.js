@@ -22,13 +22,39 @@ export function Fits(){
                 let shirtDoc = await db.collection('shirts').doc(snapshot.docs[i].data().shirt).get();
                 let pantsDoc = await db.collection('pants').doc(snapshot.docs[i].data().pants).get();
                 let shoesDoc = await db.collection('shoes').doc(snapshot.docs[i].data().shoes).get();
+                
+                let pantsPhoto;
+                let shoesPhoto;
+                let shirtPhoto;
 
+                try{
+                     pantsPhoto = pantsDoc.data().photo;
+                }
+                catch(error){
+                    pantsPhoto = "./noPhotoFound.png";
+                }
+
+                try{
+                     shoesPhoto = shoesDoc.data().photo;
+                }
+                catch(error){
+                    shoesPhoto = "./noPhotoFound.png";
+                }
+
+                try{
+                     shirtPhoto = shirtDoc.data().photo;
+                }
+                catch(error){
+                    shirtPhoto = "./noPhotoFound.png";
+                }
+                
+                
                 tempFits.push({
-                    shirt: shirtDoc.data().photo,
+                    shirt: shirtPhoto,
                     shirtId:snapshot.docs[i].data().shirt,
-                    pants: pantsDoc.data().photo,
+                    pants: pantsPhoto,
                     pantsId: snapshot.docs[i].data().pants,
-                    shoes: shoesDoc.data().photo,
+                    shoes: shoesPhoto,
                     shoesId: snapshot.docs[i].data().shoes,
                     fitId: snapshot.docs[i].id
                 });
@@ -44,7 +70,6 @@ export function Fits(){
                 <Fab color="primary" style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit - 1 < 0 ? currentFit : currentFit-1)}}><ArrowBackIosIcon /></Fab>
                 <div style={{display: "flex", justifyContent: "center"}} onClick={() => {console.log("i was clicked"); setEditingFit(true); setAddingFit(true);}}>   
                     <div style={{width: "100%"}}>
-                        {console.log(fits)}
                         <div><img src={fits[currentFit].shirt}/></div>
                         <div><img src={fits[currentFit].pants}/></div>
                         <div><img src={fits[currentFit].shoes}/></div>
