@@ -55,26 +55,28 @@ export function CameraComponent() {
 
     let outputdata = await output.data();
     let labels = [
-      "Shirt",
-      "Shoes",
-      "Pants/Shorts",
-      "Shirt",
-      "Pants",
-      "Pants",
-      "Shirt",
-      "Pants",
-      "Shirt",
-      "Shirt",
-      "Shirt",
-      "Pants/Shorts",
-      "Shirt",
-      "Shirt",
-      "Shirt",
-      "Shirt",
+      "shirt",
+      "shoes",
+      "pants",
+      "shirt",
+      "pants",
+      "pants",
+      "shirt",
+      "pants",
+      "shirt",
+      "shirt",
+      "shoes",
+      "pants",
+      "shirt",
+      "shirt",
+      "shirt",
+      "shirt",
     ];
     let i = outputdata.indexOf(Math.max(...outputdata));
     console.log(outputdata);
     alert(labels[i] + i);
+    handleClothingTypeChange(labels[i])
+
   }
 
   async function handleTakePhoto(dataUri) {
@@ -86,19 +88,15 @@ export function CameraComponent() {
     setSource(null);
   }
 
-  function handleClothingTypeChange(e) {
-    setClothingType(e.target.value);
+  function handleClothingTypeChange(value) {
+    setClothingType(value);
   }
 
   async function postImageData() {
-<<<<<<< HEAD
     let addedDocument = await db
       .collection(clothingType)
       .add({ photo: source });
     console.log(addedDocument.id);
-=======
-    let addedDocument = await db.collection(clothingType).add({ photo: source });
->>>>>>> 11770d5efc3c322eaab26e37180e5209191f5bfe
     setSource("");
   }
   return (
@@ -123,19 +121,20 @@ export function CameraComponent() {
           visibility: source ? "visible" : "hidden",
         }}
       />
-      {source && (
+      {/* {source && (
         <select
           onChange={handleClothingTypeChange}
           name="clothingType"
           id="clothingType"
         >
-          <option value="shirts">cShirts</option>
+          <option value="shirts">Shirts</option>
           <option value="pants">Pants</option>
           <option value="shoes">Shoes</option>
         </select>
-      )}
+      )} */}
       {source && <button onClick={postImageData}>upload photo</button>}
       {source && <button onClick={retakePhoto}>retake photo</button>}
+      <div style={{height: "100px"}}></div>
     </div>
   );
 }

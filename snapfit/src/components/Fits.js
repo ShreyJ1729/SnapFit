@@ -80,6 +80,7 @@ export function Fits(){
             }
             {(addingFit || editingFit ) && <EditFits setFitStatus={setAddingFit} setFitStatus2={setEditingFit} currentShirt={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shirtId : null} currentPants={editingFit && fits != null && fits.length > 0 ? fits[currentFit].pantsId : null} currentShoes={editingFit && fits != null && fits.length > 0 ? fits[currentFit].shoesId : null} fitId={ editingFit && fits != null && fits.length > 0 ? fits[currentFit].fitId: null}/>}
             {!(addingFit || editingFit ) && <Fab color="primary" onClick={() => setAddingFit(true)}><AddIcon /></Fab>}
+            <div style={{height: "200px"}}></div>
         </div>
         
     );

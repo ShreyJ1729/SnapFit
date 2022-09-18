@@ -16,7 +16,7 @@ export function MenuBar() {
   };
 
   return (
-    <div id="container">
+    <div id="container" style={{zIndex: 99999}}>
       <Box sx={{ width: 500 }}>
       <BottomNavigation
         showLabels
