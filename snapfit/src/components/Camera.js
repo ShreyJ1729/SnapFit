@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import db from "../firebase";
 import Camera, {FACING_MODES} from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export function CameraComponent() {
   const [source, setSource] = useState("");
@@ -45,8 +47,10 @@ export function CameraComponent() {
           <option value="shoes">Shoes</option>
         </select>
       }
-      {source && <button onClick={postImageData}>upload photo</button>}
-      {source && <button onClick={retakePhoto}>retake photo</button>}
+      <Stack spacing={2} direction="row">
+      {source && <Button variant="contained" onClick={postImageData}>upload photo</Button>}
+      {source && <Button variant="contained" onClick={retakePhoto}>retake photo</Button>}
+      </Stack>
     </div>
   );
 }
