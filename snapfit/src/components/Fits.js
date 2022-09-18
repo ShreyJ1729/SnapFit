@@ -70,9 +70,9 @@ export function Fits(){
                 <Fab color="primary" style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit - 1 < 0 ? currentFit : currentFit-1)}}><ArrowBackIosIcon /></Fab>
                 <div style={{display: "flex", justifyContent: "center"}} onClick={() => {console.log("i was clicked"); setEditingFit(true); setAddingFit(true);}}>   
                     <div style={{width: "100%"}}>
-                        <div><img src={fits[currentFit].shirt}/></div>
-                        <div><img src={fits[currentFit].pants}/></div>
-                        <div><img src={fits[currentFit].shoes}/></div>
+                        <div><img id="fitPhoto" src={fits[currentFit].shirt}/></div>
+                        <div><img id="fitPhoto" src={fits[currentFit].pants}/></div>
+                        <div><img id="fitPhoto" src={fits[currentFit].shoes}/></div>
                     </div>
                 </div>  
                 <Fab color = "primary" style={{width: "100px", height: "50px"}} onClick={()=>{setCurrentFit(currentFit + 1 >= fits.length ? currentFit : currentFit+1)}}><ArrowForwardIosIcon /></Fab>
