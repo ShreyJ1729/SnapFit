@@ -2,6 +2,9 @@ import './EditFits.css';
 import { useState, useEffect } from 'react';
 import db from "../firebase";
 import { border } from '@mui/system';
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export function EditFits(props) {
   let [shirtimages, setShirtImage] = useState();
@@ -51,6 +54,14 @@ export function EditFits(props) {
       });
   }, []);
 
+  async function deleteFit(){
+    if(props.fitId != null){
+      await db.collection('fits').doc(props.fitId).delete();
+    }
+    props.setFitStatus(false);
+    props.setFitStatus2(false);
+  }
+
   async function confirmNewFit(){
     //delete old fit from database
     if(props.fitId != null){
@@ -84,9 +95,11 @@ export function EditFits(props) {
         {shoeimages && shoeimages.map((image, index) => <img src={image.photo} alt={"shoe"} key={index} onClick={() => setSelectedShoes(image.id)} style={image.id == selectedShoes ? {borderColor: "black", borderSize: "2px", borderStyle: "solid"}: {}}/>)}
         <div/>
       </div>
-      <button onClick={goBack}>Go Back</button>
-      <br/>
-      <button onClick={confirmNewFit}>Confirm Fit</button>
+      <Stack textAlign="center" spacing={2} direction="row">
+        <Button onClick={goBack} variant="contained">Go Back</Button>
+        <Button onClick={confirmNewFit} variant="contained">Confirm Fit</Button>
+        <Button onClick={deleteFit} variant="contained">Delete Fit</Button>
+      </Stack>
       <div style={{height:"50px"}}/>
     </div>
   );

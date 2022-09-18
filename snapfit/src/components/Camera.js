@@ -91,10 +91,14 @@ export function CameraComponent() {
   }
 
   async function postImageData() {
+<<<<<<< HEAD
     let addedDocument = await db
       .collection(clothingType)
       .add({ photo: source });
     console.log(addedDocument.id);
+=======
+    let addedDocument = await db.collection(clothingType).add({ photo: source });
+>>>>>>> 11770d5efc3c322eaab26e37180e5209191f5bfe
     setSource("");
   }
   return (

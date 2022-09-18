@@ -4,6 +4,10 @@ img {
   padding: 4%
 }
 
+#fitPhoto{
+  width: 70%;
+}
+
 .imgContainer{
   display: inline;
 }
@@ -17,4 +21,7 @@ img {
 
 .MuiTabs-flexContainer{
   justify-content: center;
+}
+#editWardrobe{
+  width: 90%
 }
