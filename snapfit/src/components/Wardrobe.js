@@ -63,7 +63,7 @@ export function Wardrobe() {
       <br/>
       {selectedImageIndex != null && (
         <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-          <img src={images[selectedImageIndex].photo}/>
+          <img id="editWardrobe" src={images[selectedImageIndex].photo}/>
           <Stack spacing={2} direction="row">
           <Button onClick={deleteImage} variant="contained">Delete Image</Button>
           <Button variant = "contained" onClick={() => {setSelectedImageIndex(null);}}>Return</Button>
