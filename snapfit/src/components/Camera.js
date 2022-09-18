@@ -59,22 +59,22 @@ export function CameraComponent() {
 
     let outputdata = await output.data();
     let labels = [
-      "shirt",
+      "shirts",
       "shoes",
       "pants",
-      "shirt",
+      "shirts",
       "pants",
       "pants",
-      "shirt",
+      "shirts",
       "pants",
-      "shirt",
-      "shirt",
+      "shirts",
+      "shirts",
       "shoes",
       "pants",
-      "shirt",
-      "shirt",
-      "shirt",
-      "shirt",
+      "shirts",
+      "shirts",
+      "shirts",
+      "shirts",
     ];
     let i = outputdata.indexOf(Math.max(...outputdata));
     console.log(outputdata);
