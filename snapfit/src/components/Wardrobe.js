@@ -5,6 +5,8 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 export function Wardrobe() {
@@ -62,9 +64,10 @@ export function Wardrobe() {
       {selectedImageIndex != null && (
         <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
           <img src={images[selectedImageIndex].photo}/>
-          <button onClick={deleteImage}>Delete Image</button>
-          <br/>
-          <button onClick={() => {setSelectedImageIndex(null);}}>Return</button>
+          <Stack spacing={2} direction="row">
+          <Button onClick={deleteImage} variant="contained">Delete Image</Button>
+          <Button variant = "contained" onClick={() => {setSelectedImageIndex(null);}}>Return</Button>
+          </Stack>
         </div>
       )}
       {selectedImageIndex == null && 

@@ -91,9 +91,6 @@ export function EditFits(props) {
         <Button onClick={goBack} variant="contained">Go Back</Button>
         <Button onClick={confirmNewFit} variant="contained">Confirm Fit</Button>
       </Stack>
-      {/* <button onClick={goBack}>Go Back</button>
-      <br/>
-      <button onClick={confirmNewFit}>Confirm Fit</button> */}
       <div style={{height:"50px"}}/>
     </div>
   );
