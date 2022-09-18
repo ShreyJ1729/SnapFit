@@ -22,7 +22,6 @@ export function CameraComponent() {
 
   async function postImageData() {
     let addedDocument = await db.collection(clothingType).add({ photo: source });
-    console.log(addedDocument.id);
     setSource("");
   }
   return (

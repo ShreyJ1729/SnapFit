@@ -28,6 +28,7 @@ export function Wardrobe() {
   }, [clothingType, selectedImageIndex]);
 
   const handleChange = (event, value) => {
+    setSelectedImageIndex(null);
     setClothingType(value);
   };
 
