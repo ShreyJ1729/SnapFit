@@ -20,15 +20,17 @@ export function CameraComponent() {
 
   useEffect(() => {
     const loadModel = async () => {
-      let model_ = await tf.loadLayersModel("tfjs_model/model.json");
+      let model_ = await tf.loadLayersModel("tfjs_model/model.json"); 
       setModel(model_);
     };
 
     loadModel()
       .then(() => {
+        alert("LOADED MODEL!")
         console.log("LOADED!");
       })
       .catch((error) => {
+        alert("ERROR LOADING MODEL: ", error)
         console.error("ERROR LOADING MODEL: ", error);
       });
   }, [setModel]);
